@@ -3,13 +3,15 @@ package com.example.back_end.Entidades;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 import jakarta.persistence.Table;
+
+import jakarta.persistence.Id;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "productos") 
+@Entity //anotacion de entidad
+@Table(name = "productos")  //nombre de la tabla
 public class Producto {
 
     @Id
