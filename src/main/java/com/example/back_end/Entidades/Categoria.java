@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity //anotacion
-@Table(name = "categorias")
+@Table(name = "categorias") //nombre de la tabla
 public class Categoria {
 
     @Id
@@ -19,15 +19,15 @@ public class Categoria {
     public Categoria() {
     }
 
-
-
     public Categoria(Long id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
 
+
     public Long getId() {
+
         return id;
     }
 
