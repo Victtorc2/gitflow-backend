@@ -22,6 +22,10 @@ public class CategoriaDao {
         return categoria;
     }
 
+    public Categoria findById(Long id) {
+        return em.find(Categoria.class, id);
+    }
+
     public List<Categoria> findAll() {
         return em.createQuery("SELECT c FROM Categoria c", Categoria.class).getResultList();
 
