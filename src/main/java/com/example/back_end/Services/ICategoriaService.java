@@ -8,5 +8,7 @@ public interface ICategoriaService {
     public List<Categoria> getAll();
     public Categoria save(Categoria categoria);
     public Categoria getById(Long id);
-    void deleteById(Long id);  // <--- nuevo método
+    void deleteById(Long id);
+
+
 }
