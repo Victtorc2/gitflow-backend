@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
+@Entity //anotacion
 @Table(name = "categorias")
 public class Categoria {
 
@@ -16,7 +16,6 @@ public class Categoria {
     private String nombre;
     private String descripcion;
 
-    // Constructor por defecto (sin parámetros)
     public Categoria() {
     }
 
