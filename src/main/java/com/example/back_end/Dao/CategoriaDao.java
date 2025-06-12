@@ -1,4 +1,4 @@
-package com.example.back_end.dao;
+package com.example.back_end.Dao;
 
 import java.util.List;
 
