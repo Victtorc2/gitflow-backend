@@ -27,6 +27,9 @@ public class ProductoDao {
         return em.createQuery("SELECT c FROM Producto c", Producto.class).getResultList();
 
     }
+     public Producto findById(Long id) {
+        return em.find(Producto.class, id);
+    }
 
        @Transactional
     public void deleteById(Long id) {
@@ -35,4 +38,5 @@ public class ProductoDao {
             em.remove(producto);
         }
     }
+    
 }
