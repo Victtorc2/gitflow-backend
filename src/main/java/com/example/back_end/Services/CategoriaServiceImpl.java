@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.example.back_end.Dao.CategoriaDao;
 import com.example.back_end.Entidades.Categoria;
 
-
-
 @Service
 public class CategoriaServiceImpl implements ICategoriaService{
 
@@ -30,6 +28,7 @@ public class CategoriaServiceImpl implements ICategoriaService{
     public Categoria getById(Long id) {
         return categoriaDao.findById(id);
     }
+
       @Override
     public void deleteById(Long id) {
         categoriaDao.deleteById(id);
