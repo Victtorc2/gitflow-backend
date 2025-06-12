@@ -26,11 +26,13 @@ public class ProductoController {
         
     }
 
-  @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteProducto(@PathVariable Long id) {
-        productoService.deleteById(id);
-    }
+// Maneja solicitudes HTTP DELETE para eliminar un producto según su ID
+@DeleteMapping("/{id}")
+@ResponseStatus(HttpStatus.NO_CONTENT) // Devuelve HTTP 204 (sin contenido) si la eliminación es exitosa
+public void deleteProducto(@PathVariable Long id) {
+    // Llama al servicio para eliminar el producto con el ID proporcionado
+    productoService.deleteById(id);
+}
 
 
     
