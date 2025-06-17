@@ -10,17 +10,15 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.*;
 
-@Entity //anotacion de entidad
-@Table(name = "productos")  //nombre de la tabla
+@Entity 
+@Table(name = "productos")  
 public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
     private String descripcion;
-
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = false)
