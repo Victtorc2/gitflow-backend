@@ -19,35 +19,33 @@ import com.example.back_end.Services.ICategoriaService;
 @RestController
 @RequestMapping("/api/categorias")
 public class CategoriaController {
+
+    private final ICategoriaService categoriaService;
+
     @Autowired
-    private ICategoriaService categoriaService;
+    public CategoriaController(ICategoriaService categoriaService) {
+        this.categoriaService = categoriaService;
+    }
 
-
-    @GetMapping("/lista")
-    public List<Categoria> getList(){
+    @GetMapping
+    public List<Categoria> obtenerTodasLasCategorias() {
         return categoriaService.getAll();
     }
 
-    @PostMapping("/guardar")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public Categoria create(@RequestBody Categoria categoria){
-        return categoriaService.save((categoria));
+    @GetMapping("/{id}")
+    public Categoria obtenerCategoriaPorId(@PathVariable Long id) {
+        return categoriaService.getById(id);
     }
-  
-// Maneja las solicitudes GET para obtener una categoría específica por su ID
-@GetMapping("/buscar/{id}")
-public Categoria getCategoriabyId(@PathVariable Long id) {
-    // Llama al servicio para obtener la categoría con el ID proporcionado
-    return categoriaService.getById(id);
-}
 
-// Maneja las solicitudes DELETE para eliminar una categoría por su ID
-@DeleteMapping("/{id}")
-@ResponseStatus(HttpStatus.NO_CONTENT) // Devuelve el código 204 No Content si se elimina correctamente
-public void deleteCategoria(@PathVariable Long id) {
-    // Llama al servicio para eliminar la categoría con el ID proporcionado
-    categoriaService.deleteById(id);
-}
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Categoria crearCategoria(@RequestBody Categoria categoria) {
+        return categoriaService.save(categoria);
+    }
 
-    
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminarCategoria(@PathVariable Long id) {
+        categoriaService.deleteById(id);
+    }
 }
